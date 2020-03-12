@@ -1,13 +1,26 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import axios from 'axios';
 
 const ContactForm = () => {
   const [data, setData] = useState();
   const { register, errors, handleSubmit, reset } = useForm({
     mode: "onBlur"
   });
+  
   const onSubmit = data => {
     setData(data);
+    axios({
+      method:'post',
+      url: 'https://reqres.in/api/users',
+      data: data
+    })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    })
   };
 
   return (

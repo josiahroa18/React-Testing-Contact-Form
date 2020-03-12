@@ -81,9 +81,9 @@ test ('first name is too long', async() => {
     const emailInput = await findByLabelText(/email*/i);
     const messageInput = await findByLabelText(/message/i);
 
-    fireEvent.change(firstNameInput, {
-        target: {name: 'firstName', value: 'Josiahasdfas'}
-    });
+    // fireEvent.change(firstNameInput, {
+    //     target: {name: 'firstName', value: 'Josiah'}
+    // });
 
     fireEvent.change(lastNameInput, {
         target: {name: 'lastName', value: 'Roa'}
@@ -165,3 +165,4 @@ test('email error appears', async() => {
 
     await findByTestId('error');
 })
+
